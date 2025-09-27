@@ -1,0 +1,46 @@
+#Index.html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realtime Collaborative Editor</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+      #toolbar { background: #f3f3f3; padding: 8px; }
+      #editor { height: calc(100vh - 80px); }
+      #topbar { display:flex; gap:8px; align-items:center; padding:8px; }
+      #status { margin-left:auto; font-size:0.9rem; color:#555 }
+    </style>
+  </head>
+  <body>
+    <div id="topbar">
+      <div>
+        Doc ID: <input id="docId" value="default" />
+        <button id="joinBtn">Join</button>
+        <button id="saveBtn">Save</button>
+      </div>
+      <div id="status">Not connected</div>
+    </div>
+
+    <div id="toolbar">
+      <span class="ql-formats">
+        <select class="ql-header"></select>
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+      </span>
+    </div>
+
+    <div id="editor"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
